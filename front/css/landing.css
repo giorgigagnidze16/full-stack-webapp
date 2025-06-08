@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'boldonse';
+    src: url('../assets/fonts/Boldonse-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'skibd';
+    src: url('../assets/fonts/WDXLLubrifontTC-Regular.ttf');
+}
+
+.top-image-holder {
+    width: 638px;
+    display: inline-block;
+    height: 500px;
+    margin: 0;
+}
+
+.top-header-holder {
+    width: 638px;
+    display: inline-block;
+    height: 500px;
+    float: right;
+    margin: 0;
+
+}
+
+.landing-photo-top {
+    display: block;
+    margin: auto;
+    width: 70%;
+}
+
+.landing-top-header {
+    margin-top: 100px;
+    font-size: 46px;
+    color: aqua;
+    font-family: skibd, serif;
+    width: 430px;
+    display: block;
+}
+
+.landing-top-paragraph {
+    display: block;
+}

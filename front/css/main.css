@@ -1,0 +1,31 @@
+body {
+    margin: 0;
+}
+
+.hero-bg {
+    background: url("../assets/bg/light bg.png") repeat-x top left;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-bg .container {
+    position: relative;
+    z-index: 999;
+}
+
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    min-height: 500px;
+    /*background-color: red;*/
+}
