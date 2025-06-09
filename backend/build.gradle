@@ -34,14 +34,12 @@ dependencies {
 }
 
 jar {
-    archiveBaseName.set('backend')
-    archiveVersion.set('')
-    archiveClassifier.set('')
+    archiveBaseName.set("backend")
+    archiveVersion.set("")
+    archiveClassifier.set("")
 }
 
-jar {
-    enabled = false
-}
+
 
 tasks.named('test') {
     useJUnitPlatform()
