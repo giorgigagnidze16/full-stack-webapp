@@ -1,4 +1,4 @@
-name: Deploy front to GCP
+name: Deploy front to GCP multi region
 
 on:
   push:
