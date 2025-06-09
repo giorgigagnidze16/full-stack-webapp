@@ -1,0 +1,33 @@
+name: Deploy static site to Google Cloud VM
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Copy files to VM with password
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.GCP_VM_IP }}
+          username: ${{ secrets.GCP_SSH_USER }}
+          password: ${{ secrets.GCP_SSH_PASSWORD }}
+          source: "./front*"         
+          target: "/tmp/site"   
+
+      - name: Move files to nginx root
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.GCP_VM_IP }}
+          username: ${{ secrets.GCP_SSH_USER }}
+          password: ${{ secrets.GCP_SSH_PASSWORD }}
+          script: |
+            sudo rm -rf /var/www/html/*
+            sudo cp -r /tmp/site/* /var/www/html/
+            sudo rm -rf /tmp/site
