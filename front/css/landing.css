@@ -3,17 +3,27 @@
     src: url('../assets/fonts/WDXLLubrifontTC-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'boldonse';
+    src: url('../assets/fonts/Boldonse-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'overpass';
+    src: url('../assets/fonts/Overpass-VariableFont_wght.ttf');
+}
+
 .top-image-holder {
     width: 608px;
     display: inline-block;
-    height: 500px;
+    min-height: 500px;
     perspective: 608px;
 }
 
 .top-header-holder {
     width: 668px;
     display: inline-block;
-    height: 500px;
+    min-height: 500px;
     float: right;
 }
 
@@ -43,4 +53,27 @@
     color: white;
     font-size: 22px;
     font-family: regular, serif;
+}
+
+.get-in-touch {
+    display: block;
+
+    margin: 0 auto;
+    width: 300px;
+    height: 60px;
+
+    cursor: pointer;
+
+    font-size: 22px;
+    font-family: overpass, serif;
+    font-weight: bold;
+}
+
+.get-in-touch:hover {
+    color: white;
+
+    border-color: #2d83b2;
+    background-color: #2d83b2;
+
+    transition: 0.6s;
 }

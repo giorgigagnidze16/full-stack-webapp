@@ -1,3 +1,37 @@
+@font-face {
+    font-family: 'overpass';
+    src: url('../assets/fonts/Overpass-VariableFont_wght.ttf');
+}
+
+.navbar {
+    font-family: overpass, serif;
+    padding-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.navbar .nav-item {
+    margin-top: 10px;
+    margin-right: 20px;
+    border-bottom: 3px solid transparent;
+}
+
+.navbar .nav-item:hover {
+    color: white;
+    border-style: solid;
+    border-bottom: solid 3px #ffd600;
+
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-item:hover {
+    opacity: 1 !important;
+    color: #fff !important;
+}
+
 #navbar-logo {
     height: 70px;
     width: 260px;
