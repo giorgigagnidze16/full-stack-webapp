@@ -29,5 +29,5 @@ jobs:
           key: ${{ secrets.GCP_SSH_PASSWORD }}
           script: |
             sudo rm -rf /var/www/html/*
-            sudo cp -r /tmp/site/front* /var/www/html/
+            sudo cp -r /tmp/site/front/* /var/www/html/
             sudo rm -rf /tmp/site/
