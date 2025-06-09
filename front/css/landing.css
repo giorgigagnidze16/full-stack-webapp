@@ -1,9 +1,4 @@
 @font-face {
-    font-family: 'regular';
-    src: url('../assets/fonts/WDXLLubrifontTC-Regular.ttf');
-}
-
-@font-face {
     font-family: 'boldonse';
     src: url('../assets/fonts/Boldonse-Regular.ttf');
 }
@@ -24,13 +19,13 @@
 .landing-top-header {
     color: aqua;
 
-    font-family: regular, serif;
+    font-family: overpass, serif;
     font-weight: bold;
 }
 
 .landing-top-paragraph {
     color: white;
-    font-family: regular, serif;
+    font-family: overpass, serif;
 }
 
 .get-in-touch {
