@@ -6,6 +6,8 @@ body {
     background: url("../assets/bg/light bg.png") repeat-x top left;
     background-size: cover;
     background-position: center;
+
+    padding-bottom: 60px;
 }
 
 .hero-bg::after {
@@ -22,10 +24,20 @@ body {
     z-index: 999;
 }
 
+@media screen and (min-width: 1300px) {
+    .container {
+        max-width: 1300px;
+        margin: 0 auto;
+        min-height: 800px;
+        padding-bottom: 60px;
+    }
+}
 
-.container {
-    max-width: 1300px;
-    margin: 0 auto;
-    min-height: 800px;
-    /*background-color: red;*/
+@media screen and (max-width: 1299px) {
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        min-height: 900px;
+        margin-bottom: 30px !important;
+    }
 }
