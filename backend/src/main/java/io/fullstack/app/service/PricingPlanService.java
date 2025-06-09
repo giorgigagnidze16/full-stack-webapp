@@ -26,6 +26,8 @@ public class PricingPlanService {
             throw new NotFoundException("Pricing plans not found in the db");
         }
 
+        log.debug("Retrieved {} number of pricing plans", pricingPlans.size());
+
         return pricingPlans;
     }
 }
