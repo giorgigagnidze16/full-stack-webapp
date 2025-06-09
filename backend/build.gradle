@@ -34,7 +34,7 @@ dependencies {
 }
 
 
-jar {
+bootJar {
     archiveBaseName.set("backend")
     archiveVersion.set("")
     archiveClassifier.set("")

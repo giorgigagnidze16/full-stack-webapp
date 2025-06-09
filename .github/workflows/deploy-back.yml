@@ -31,7 +31,7 @@ jobs:
 
       - name: Build Backend JAR
         working-directory: ./backend
-        run: ./gradlew clean jar
+        run: ./gradlew clean bootJar
 
       - name: Copy to VM 1
         uses: appleboy/scp-action@v0.1.7
