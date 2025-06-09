@@ -9,7 +9,6 @@ on:
 
 jobs:
   deploy-backend:
-    if: contains(github.event.head_commit.modified, 'backend/') || contains(github.event.head_commit.added, 'backend/') || contains(github.event.head_commit.removed, 'backend/')
     runs-on: ubuntu-latest
 
     steps:
