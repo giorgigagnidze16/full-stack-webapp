@@ -1,8 +1,11 @@
-name: Deploy static site to Google Cloud VM
+name: Deploy front to GCP
 
 on:
   push:
-    branches: [ main ]  
+    branches:
+      - main      
+    paths:
+      - 'front/**'  
 
 jobs:
   deploy:
@@ -12,19 +15,39 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Copy files to GCP via SSH visudo
+      - name: Copy files to GCP instance 1 via SSH visudo
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.GCP_VM_IP }}
+          host: ${{ secrets.GCP_VM_IP_1 }}
           username: ${{ secrets.GCP_SSH_USER }}
           key: ${{ secrets.GCP_SSH_PASSWORD }}
           source: "./front*"       
           target: "/tmp/site"  
 
-      - name: Deploy to nginx web root
+      - name: Copy files to GCP instance 2 via SSH visudo
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.GCP_VM_IP_2 }}
+          username: ${{ secrets.GCP_SSH_USER }}
+          key: ${{ secrets.GCP_SSH_PASSWORD }}
+          source: "./front*"       
+          target: "/tmp/site"  
+          
+      - name: Deploy to nginx web root on VM1
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.GCP_VM_IP }}
+          host: ${{ secrets.GCP_VM_IP_1 }}
+          username: ${{ secrets.GCP_SSH_USER }}
+          key: ${{ secrets.GCP_SSH_PASSWORD }}
+          script: |
+            sudo rm -rf /var/www/html/*
+            sudo cp -r /tmp/site/front/* /var/www/html/
+            sudo rm -rf /tmp/site/
+
+      - name: Deploy to nginx web root on VM2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.GCP_VM_IP_2 }}
           username: ${{ secrets.GCP_SSH_USER }}
           key: ${{ secrets.GCP_SSH_PASSWORD }}
           script: |
