@@ -39,7 +39,7 @@ jobs:
           host: ${{ secrets.GCP_VM_IP_1 }}
           username: ${{ secrets.GCP_SSH_USER }}
           key: ${{ secrets.GCP_SSH_PASSWORD }}
-          source: "./backend*"
+          source: "./backend/*"
           target: "/tmp/backend"
 
       - name: Copy to VM 2
@@ -48,7 +48,7 @@ jobs:
           host: ${{ secrets.GCP_VM_IP_2 }}
           username: ${{ secrets.GCP_SSH_USER }}
           key: ${{ secrets.GCP_SSH_PASSWORD }}
-          source: "./backend*"
+          source: "./backend/*"
           target: "/tmp/backend"
 
       - name: Deploy Docker Compose on VM1
