@@ -17,7 +17,7 @@ services:
     container_name: postgre
     image: postgres:16.3
     environment:
-      POSTGRES_DB: postgres
+      POSTGRES_DB: worklinker
       POSTGRES_PASSWORD: password
     ports:
       - "5432:5432"
