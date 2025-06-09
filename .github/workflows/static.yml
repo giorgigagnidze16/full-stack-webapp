@@ -26,7 +26,7 @@ jobs:
         with:
           host: ${{ secrets.GCP_VM_IP }}
           username: ${{ secrets.GCP_SSH_USER }}
-          key: ${{ secrets.GCP_SSH_KEY }}
+          key: ${{ secrets.GCP_SSH_PASSWORD }}
           script: |
             sudo rm -rf /var/www/html/*
             sudo cp -r /tmp/site/* /var/www/html/
