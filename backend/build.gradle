@@ -39,6 +39,10 @@ jar {
     archiveClassifier.set('')
 }
 
+jar {
+    enabled = false
+}
+
 tasks.named('test') {
     useJUnitPlatform()
 }
