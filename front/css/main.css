@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+}
+
+.hero-bg {
+    background: url("../assets/bg/light bg.png") repeat-x top left;
+    background-size: cover;
+    background-position: center;
+
+    padding-bottom: 60px;
+}
+
+.hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-bg .container {
+    position: relative;
+    z-index: 999;
+}
+
+@media screen and (min-width: 1300px) {
+    .container {
+        max-width: 1300px;
+        margin: 0 auto;
+        min-height: 800px;
+        padding-bottom: 60px;
+    }
+}
+
+@media screen and (max-width: 1299px) {
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        min-height: 900px;
+        margin-bottom: 30px !important;
+    }
+}
