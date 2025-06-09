@@ -6,7 +6,7 @@ body {
     background: url("../assets/bg/light bg.png") repeat-x top left;
     background-size: cover;
     background-position: center;
-
+    padding-bottom: 60px;
 }
 
 .hero-bg::after {

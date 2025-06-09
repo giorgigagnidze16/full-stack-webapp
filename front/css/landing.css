@@ -107,9 +107,9 @@
 
 .feature p {
     font-size: 14px;
-    max-width: 360px;      /* or any value you like */
-    margin: 0 auto;        /* centers the paragraph inside its parent */
-    text-align: center;    /* optional: centers text if desired */
+    max-width: 360px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .whitebg {
@@ -149,7 +149,6 @@
 
     .landing-top-paragraph {
         width: 420px;
-
         font-size: 22px;
     }
 
@@ -189,11 +188,11 @@
     }
 
     .mailto {
-        margin-bottom: 50px; /* 👈 Add this */
+        margin-bottom: 50px;
     }
 
     .get-in-touch {
-        margin-bottom: 50px; /* 👈 Add this */
+        margin-bottom: 50px;
     }
 
 }
