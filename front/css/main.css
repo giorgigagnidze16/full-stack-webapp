@@ -7,7 +7,6 @@ body {
     background-size: cover;
     background-position: center;
 
-    padding-bottom: 60px;
 }
 
 .hero-bg::after {
@@ -17,6 +16,7 @@ body {
     background: rgba(0, 0, 0, 0.6);
     z-index: 1;
     pointer-events: none;
+    height: 800px;
 }
 
 .hero-bg .container {
@@ -29,7 +29,6 @@ body {
         max-width: 1300px;
         margin: 0 auto;
         min-height: 800px;
-        padding-bottom: 60px;
     }
 }
 
@@ -38,6 +37,5 @@ body {
         width: 100%;
         margin: 0 auto;
         min-height: 900px;
-        margin-bottom: 30px !important;
     }
 }
