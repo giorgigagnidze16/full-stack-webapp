@@ -54,7 +54,7 @@ jobs:
           username: ${{ secrets.GCP_SSH_USER }}
           key: ${{ secrets.GCP_SSH_PASSWORD }}
           script: |
-            cd /tmp/backend
+            cd /tmp/backend/backend
             sudo docker compose up -d --build backend
 
       - name: Deploy Docker Compose on VM2
@@ -64,5 +64,5 @@ jobs:
           username: ${{ secrets.GCP_SSH_USER }}
           key: ${{ secrets.GCP_SSH_PASSWORD }}
           script: |
-            cd /tmp/backend
+            cd /tmp/backend/backend
             sudo docker compose up -d --build backend
