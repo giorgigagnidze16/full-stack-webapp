@@ -18,7 +18,7 @@ jobs:
           host: ${{ secrets.GCP_VM_IP }}
           username: ${{ secrets.GCP_SSH_USER }}
           key: ${{ secrets.GCP_SSH_PASSWORD }}
-          source: "./front*"       
+          source: "/front*"       
           target: "/tmp/site"  
 
       - name: Deploy to nginx web root
