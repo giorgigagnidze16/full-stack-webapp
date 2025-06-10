@@ -1,0 +1,20 @@
+html, body {
+    margin: 0;
+    background-color: #05232e;
+}
+
+@media screen and (min-width: 1300px) {
+    .container {
+        max-width: 1300px;
+        margin: 0 auto;
+        min-height: 800px;
+    }
+}
+
+@media screen and (max-width: 1299px) {
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        min-height: 900px;
+    }
+}

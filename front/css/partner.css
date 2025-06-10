@@ -1,0 +1,123 @@
+@import url("navbar.css");
+@import url("footer.css");
+@import url("container.css");
+
+@font-face {
+    font-family: 'overpass';
+    src: url('../assets/fonts/Overpass-VariableFont_wght.ttf');
+}
+
+.navbar {
+    margin-bottom: 30px !important;
+}
+
+.partner-section {
+    background: url("../assets/bg/light bg.png") repeat-x top left;
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+    font-family: overpass, serif;
+    padding-bottom: 50px;
+}
+
+.partner-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+    pointer-events: none;
+    height: 800px;
+}
+
+.partner-section .container {
+    position: relative;
+    z-index: 999;
+}
+
+.partner-section p {
+    color: white !important;
+    font-weight: bold;
+    font-family: 'overpass', serif;
+}
+
+.partner-form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.partner-form h2 {
+    font-weight: 600;
+}
+
+.nav-pills .nav-link {
+    cursor: pointer;
+}
+
+.partner-section .text-center h2,
+.partner-section .text-center p {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+}
+
+.partner-form {
+    position: relative;
+    z-index: 2;
+    background: #FFFFFF07;
+    backdrop-filter: blur(8px);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.partner-form .form-label,
+.partner-form .form-check-label {
+    color: #ececec;
+    padding-top: 2px;
+}
+
+
+.partner-form .form-control,
+.partner-form .form-select {
+    background-color: #1f2a40;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border-radius: 0.5rem;
+    transition: border-color .3s, box-shadow .3s;
+}
+
+.partner-form .form-control::placeholder {
+    color: #fff;
+}
+
+.nav-pills .nav-link {
+    color: #fff;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
+    padding: 0.5rem 1rem;
+    margin: 0 .25rem;
+    transition: all .3s;
+}
+
+.nav-pills .nav-link.active {
+    color: #000;
+    background: #00d9ff;
+    border-color: #00d9ff;
+}
+
+
+.partner-form .btn-primary {
+    background: #00d9ff;
+    border: none;
+    color: #000;
+    padding: 12px;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: background .3s, transform .1s;
+}
+
