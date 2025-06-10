@@ -1,0 +1,179 @@
+@font-face {
+    font-family: 'boldonse';
+    src: url('../../assets/fonts/Boldonse-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'overpass';
+    src: url('../../assets/fonts/Overpass-VariableFont_wght.ttf');
+}
+
+.pricing-section {
+    background-color: #0d1117;
+    padding: 70px 0;
+    font-family: 'overpass', sans-serif;
+}
+
+.pricing-section h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 70px;
+
+    font-family: boldonse, serif;
+    font-size: 44px;
+}
+
+.pricing-header {
+    color: white;
+    text-align: center;
+    margin-bottom: 70px;
+    font-family: 'boldonse', serif;
+    font-size: 44px;
+}
+
+.pricing-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 20px;
+    min-height: 530px !important;
+}
+
+.price {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    color: #c9d1d9;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 530px;
+}
+
+.price:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.price.pro {
+    border-color: #388bfd;
+    box-shadow: 0 0 15px rgba(56, 139, 253, 0.4);
+}
+
+.price h2 {
+    color: #f0f6fc;
+    font-family: 'boldonse', serif;
+    font-size: 28px;
+    text-align: left;
+    margin: 0 0 20px 0;
+}
+
+.features-list-container {
+    flex-grow: 1;
+}
+
+.features-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.features-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-family: 'overpass', serif;
+    color: #8b949e;
+    font-size: 21px;
+
+}
+
+.feature-icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 12px;
+}
+
+.price-button {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    font: bold 16px 'Overpass', sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #1f78ff;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.price-button:hover {
+    background-color: #1666cc;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+#package-basic .price-button {
+    background-color: #00bfff;
+}
+
+#package-basic .price-button:hover {
+    background-color: #00a8e6;
+}
+
+#package-pro .price-button {
+    background-color: #1f78ff;
+}
+
+#package-pro .price-button:hover {
+    background-color: #1a66d1;
+}
+
+#package-enterprise .price-button {
+    background-color: #00bfff;
+}
+
+#package-enterprise .price-button:hover {
+    background-color: #00a8e6;
+}
+
+.price:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2),
+    0 0 12px rgba(56, 139, 253, 0.6);
+}
+
+.pick-today-text {
+    max-width: 900px;
+    margin: 70px auto 0;
+    text-align: center;
+    color: #fff;
+    font-family: 'Overpass', sans-serif;
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.pick-today-text .highlight {
+    display: inline-block;
+    color: #9bf501;
+    border-bottom: 3px solid #00BFFF;
+    padding-bottom: 3px;
+}
+
+@media screen and (min-width: 768px) {
+    .pricing-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .pricing-container {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}

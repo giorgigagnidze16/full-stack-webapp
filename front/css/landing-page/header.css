@@ -1,0 +1,142 @@
+/* load background image and darken */
+.intro-container {
+    background: url("../../assets/bg/light bg.png") repeat-x top left;
+    background-size: cover;
+    background-position: center;
+}
+
+.intro-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    pointer-events: none;
+    height: 800px;
+}
+
+.intro-container .container {
+    position: relative;
+    z-index: 999;
+}
+
+/*style top section*/
+.landing-photo-top {
+    display: block;
+    margin: 0 auto;
+
+    transform: rotateY(20deg);
+    transition: transform 0.6s;
+}
+
+.landing-top-header {
+    color: aqua;
+
+    font-family: overpass, serif;
+    font-weight: bold;
+}
+
+.landing-top-paragraph {
+    color: white;
+    font-family: overpass, serif;
+}
+
+.get-in-touch {
+    display: block;
+
+    margin: 0 auto;
+    width: 300px;
+    height: 60px;
+
+    cursor: pointer;
+
+    font-size: 22px;
+    font-weight: bold;
+    font-family: overpass, serif;
+}
+
+.get-in-touch:hover {
+    color: white;
+
+    border-color: #2d83b2;
+    background-color: #2d83b2;
+
+    transition: 0.6s;
+}
+
+@media screen and (min-width: 1300px) {
+    .top-image-holder {
+        width: 608px;
+        display: inline-block;
+        min-height: 500px;
+        perspective: 608px;
+    }
+
+    .top-header-holder {
+        width: 668px;
+        display: inline-block;
+        min-height: 500px;
+        float: right;
+    }
+
+    .landing-photo-top {
+        width: 85%;
+    }
+
+    .landing-top-header {
+        width: 430px;
+        margin-top: 110px;
+        font-size: 46px;
+    }
+
+    .landing-top-paragraph {
+        width: 420px;
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 1299px) {
+    .intro-container {
+        padding-bottom: 60px;
+    }
+
+    .top-image-holder {
+        width: 100%;
+        min-height: 120px;
+    }
+
+    .top-header-holder {
+        width: 100%;
+        min-height: 120px;
+
+        margin-bottom: 50px;
+    }
+
+    .landing-photo-top {
+        width: 90%;
+    }
+
+    .landing-top-header {
+        margin: 0 auto;
+        text-align: center;
+        width: 80%;
+
+        font-size: 32px;
+    }
+
+    .landing-top-paragraph {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+
+        font-size: 20px;
+    }
+
+    .mailto {
+        margin-bottom: 50px;
+    }
+
+    .get-in-touch {
+        margin-bottom: 50px;
+    }
+}
