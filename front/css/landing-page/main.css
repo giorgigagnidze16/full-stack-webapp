@@ -1,10 +1,12 @@
 @import url("../navbar.css");
+@import url("../footer.css");
 @import url("header.css");
 @import url("features.css");
 @import url("pricing.css");
 
-body {
+html, body {
     margin: 0;
+    background-color: #05232e;
 }
 
 @media screen and (min-width: 1300px) {
