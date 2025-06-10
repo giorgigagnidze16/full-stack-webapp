@@ -57,10 +57,19 @@
 }
 
 .features-section {
-    background: linear-gradient(120deg, #060818 60%, #01173e 100%);
-    padding: 60px 0;
     background-size: cover;
-    background-position: right;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background: linear-gradient(120deg, #060818 60%, #01173e 100%) right;
+}
+
+.features-section h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 50px;
+
+    font-family: boldonse, serif;
+    font-size: 44px;
 }
 
 .feature {
@@ -117,9 +126,50 @@
     color: white;
 }
 
+.pricing-container {
+    display: grid;
+    gap: 10px;
+}
+
+.pricing-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 -40px 40px -20px #181b24 inset;
+    background: linear-gradient(
+            to bottom,
+            #101322 0%,
+            #181b24 60%,
+            #19192b 100%
+    );
+}
+
+.price {
+    min-height: 340px;
+
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 6px 32px 0 rgba(0, 0, 0, 0.20);
+    border: 1px solid rgba(50, 80, 220, 0.13);
+
+    padding: 12px 1px;
+    color: black;
+    transition: transform 0.4s, box-shadow 0.4s;
+    margin: 16px;
+}
+
+.price h1 {
+    text-align: center;
+}
+
+.feature-icon {
+    width: 16px;
+}
 
 @media screen and (min-width: 1300px) {
     .features-container {
+        grid-template-columns: auto auto auto;
+    }
+
+    .pricing-container {
         grid-template-columns: auto auto auto;
     }
 
@@ -196,3 +246,5 @@
     }
 
 }
+
+
