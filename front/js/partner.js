@@ -23,17 +23,17 @@ function showToast(type, message) {
     </div>
   `;
 
-    // append and show
     container.appendChild(toastEl);
     const bsToast = new bootstrap.Toast(toastEl, {delay: 3000});
     bsToast.show();
 
-    // cleanup after hide
     toastEl.addEventListener('hidden.bs.toast', () => toastEl.remove());
 }
 
 
 async function handleForm() {
+    const requiredKeys = ['firstName', 'lastName', 'company', 'email', 'phone', 'country', 'consent'];
+
     const data = {
         firstName: document.getElementById('firstName').value.trim(),
         lastName: document.getElementById('lastName').value.trim(),
@@ -44,8 +44,6 @@ async function handleForm() {
         message: document.getElementById('message').value.trim(),
         consent: document.getElementById('consent').checked
     };
-
-    const requiredKeys = ['firstName', 'lastName', 'company', 'email', 'phone', 'country', 'consent'];
 
     const invalid = requiredKeys.filter(key => {
         const val = data[key];
@@ -71,5 +69,4 @@ async function handleForm() {
     } else {
         showToast('error', "Something went wrong! " + resp.statusText + " " + resp.status)
     }
-
 }
