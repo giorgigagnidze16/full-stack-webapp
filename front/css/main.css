@@ -32,17 +32,13 @@ body {
 }
 
 @media screen and (max-width: 1299px) {
-
+    .intro-container {
+        padding-bottom: 60px;
+    }
 
     .container {
         width: 100%;
         margin: 0 auto;
         min-height: 900px;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .intro-container {
-        padding-bottom: 60px;
     }
 }
