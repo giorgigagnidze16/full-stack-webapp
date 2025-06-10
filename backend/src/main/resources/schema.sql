@@ -1,3 +1,5 @@
+drop table IF EXISTS pricing_plans;
+
 CREATE TABLE IF NOT EXISTS pricing_plans
 (
     id       SERIAL       NOT NULL,
