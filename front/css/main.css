@@ -6,7 +6,6 @@ body {
     background: url("../assets/bg/light bg.png") repeat-x top left;
     background-size: cover;
     background-position: center;
-    padding-bottom: 60px;
 }
 
 .intro-container::after {
@@ -33,6 +32,10 @@ body {
 }
 
 @media screen and (max-width: 1299px) {
+    .intro-container {
+        padding-bottom: 60px;
+    }
+
     .container {
         width: 100%;
         margin: 0 auto;
