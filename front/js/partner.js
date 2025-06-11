@@ -32,11 +32,11 @@ function showToast(type, message) {
 
 
 async function handleForm() {
-    const requiredKeys = ['firstName', 'lastName', 'company', 'email', 'phone', 'country', 'consent'];
+    const requiredKeys = ['firstname', 'lastname', 'company', 'email', 'phone', 'country', 'consent'];
 
     const data = {
-        firstName: document.getElementById('firstName').value.trim(),
-        lastName: document.getElementById('lastName').value.trim(),
+        firstname: document.getElementById('firstname').value.trim(),
+        lastname: document.getElementById('lastname').value.trim(),
         company: document.getElementById('company').value.trim(),
         email: document.getElementById('email').value.trim(),
         phone: document.getElementById('phone').value.trim(),
@@ -64,9 +64,11 @@ async function handleForm() {
         body: JSON.stringify(data),
     });
 
-    if (resp.ok) {
-        showToast("Submitted!")
+    if ([200, 201].includes(resp.status)) {
+        showToast('success', 'Submitted!')
     } else {
-        showToast('error', "Something went wrong! " + resp.statusText + " " + resp.status)
+        const response = await resp.text();
+
+        showToast('error', "Something went wrong! " + response + ", status: " + resp.status)
     }
 }
