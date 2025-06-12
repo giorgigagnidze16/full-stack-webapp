@@ -1,19 +1,25 @@
 package io.fullstack.app.service;
 
 
+import io.fullstack.app.dto.PartnerResponse;
 import io.fullstack.app.dto.PartnershipRequestDTO;
+import io.fullstack.app.entity.Partner;
 import io.fullstack.app.entity.PartnerRequest;
 import io.fullstack.app.exception.AlreadyExistsException;
+import io.fullstack.app.repository.PartnerRepository;
 import io.fullstack.app.repository.PartnerRequestRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class PartnerService {
-    private final PartnerRequestRepository repository;
+    private final PartnerRepository partnerRepository;
+    private final PartnerRequestRepository partnerRequestRepository;
 
     /**
      * Processes and saves partnership request in the database.
@@ -22,7 +28,7 @@ public class PartnerService {
      * @throws AlreadyExistsException if request already exists either from the company or the same email.
      */
     public void processPartnershipRequest(PartnershipRequestDTO request) {
-        if (repository.existsByEmailOrCompany(request.email(), request.company())) {
+        if (partnerRequestRepository.existsByEmailOrCompany(request.email(), request.company())) {
             throw new AlreadyExistsException("Partnership request already exists from company: " + request.company());
         }
 
@@ -37,8 +43,20 @@ public class PartnerService {
             .phone(request.phone())
             .build();
 
-        repository.save(partnerRequest);
+        partnerRequestRepository.save(partnerRequest);
 
         log.info("Successfully saved partnership request from {}, {}", request.email(), request.company());
+    }
+
+    public List<PartnerResponse> findAll() {
+        log.info("Retrieving partners from the db.");
+        return partnerRepository.findAll()
+            .stream()
+            .map(PartnerService::mapPartnerEntityToPartnerResponse)
+            .toList();
+    }
+
+    private static PartnerResponse mapPartnerEntityToPartnerResponse(Partner p) {
+        return new PartnerResponse(p.getRegion().getName(), p.getCompany(), p.getCountry(), p.getNumber(), p.getWebsite(), p.getImgUrl());
     }
 }

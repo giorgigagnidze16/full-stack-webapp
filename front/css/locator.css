@@ -1,0 +1,150 @@
+@import url("navbar.css");
+@import url("footer.css");
+@import url("container.css");
+
+@font-face {
+    font-family: 'boldonse';
+    src: url('../assets/fonts/Boldonse-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'overpass';
+    src: url('../assets/fonts/Overpass-VariableFont_wght.ttf');
+}
+
+.container {
+    min-height: 750px !important;
+}
+
+.locator-header-container {
+    background: url("../assets/bg/handshake.jpeg") repeat-x top left;
+    background-size: cover;
+    background-position: center;
+}
+
+.locator-header-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.69);
+    z-index: 1;
+    pointer-events: none;
+    height: 750px;
+}
+
+.locator-header-container .container {
+    position: relative;
+    z-index: 999;
+}
+
+.find-partner-header {
+    color: white;
+    font-family: overpass, serif;
+    font-size: 80px;
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+
+.locator-info {
+    color: white;
+    font-family: overpass, serif;
+    font-size: 21px;
+}
+
+.partner-with-us-button {
+    margin-top: 40px !important;
+    text-decoration: none;
+    height: 44px;
+    width: 167px;
+    font-size: 16px;
+
+    font-family: Bahnschrift, overpass, serif;
+    font-weight: bold;
+    color: #1A1A1A;
+}
+
+.partner-with-us-button:hover {
+    color: white;
+    transition: 0.4s;
+
+    background-color: #002F5F;
+
+    transform: translateY(-5px);
+}
+
+
+.partners-list-section {
+    background-color: #07162a;
+    padding: 2rem 0;
+}
+
+.partner-region-title {
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #0dcaf0;
+    padding-bottom: 0.5rem;
+    color: #0dcaf0;
+}
+
+.partner-card {
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    background-color: #1f2a38;
+    box-shadow: 0 2px 8px rgb(13 202 240 / 0.15);
+    transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.partner-card:hover {
+    box-shadow: 0 4px 16px rgb(13 202 240 / 0.45);
+    background-color: #254061;
+    cursor: pointer;
+}
+
+.partner-logo {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    border-radius: 6px;
+    border: 1px solid #0dcaf0;
+    background-color: #14232e;
+}
+
+.partner-company {
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-bottom: 0.3rem;
+    color: #0dcaf0;
+    text-decoration: none;
+}
+
+.partner-company:hover {
+    text-decoration: underline;
+}
+
+.partner-details {
+    font-size: 0.95rem;
+    color: #c0cbd8;
+    line-height: 1.4;
+}
+
+.partner-phone,
+.partner-country {
+    font-weight: 500;
+    color: #a3b1c2;
+}
+
+.partner-details a {
+    color: #70b8ff;
+    text-decoration: none;
+}
+
+.partner-details a:hover {
+    text-decoration: underline;
+}
+
