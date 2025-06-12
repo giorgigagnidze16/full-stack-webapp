@@ -1,0 +1,104 @@
+@import url("navbar.css");
+@import url("container.css");
+@import url("landing-page/main.css");
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #034078 0%, #011a27 100%);
+    color: #e0e6f2;
+}
+
+.intro-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-container {
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgb(1 26 39 / 0.6);
+    max-width: 800px;
+    width: 100%;
+}
+
+.hero-container h2 {
+    color: #fff !important;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.hero-container label {
+    color: #fff !important;
+    font-weight: 500;
+}
+
+.hero-container input[type="text"],
+.hero-container input[type="password"] {
+    background-color: rgba(255, 255, 255, 1);
+    border: none;
+    border-radius: 6px;
+    color: #000000;
+    padding: 12px 15px;
+    width: 100%;
+    margin-top: 0.25rem;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-container input[type="text"]:focus,
+.hero-container input[type="password"]:focus {
+    background-color: rgba(255, 255, 255, 0.7);
+    outline: none;
+    color: black;
+}
+
+.hero-container button {
+    background-color: #18bcff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #011a27;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero-container button:hover {
+    background-color: #0f9be7;
+    color: #e0e6f2;
+}
+
+.hero-container a {
+    display: block;
+    margin-top: 1rem;
+    color: #18bcff;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.hero-container a:hover {
+    color: #0f9be7;
+}
+
+#loginError {
+    color: #ff6b6b;
+    font-weight: 600;
+}
+
+.custom-login-container {
+    background-color: rgba(1, 26, 39, 0.4);
+    box-shadow: 0 8px 24px rgba(73, 45, 239, 0.1);
+    max-width: 400px;
+    width: 100%;
+    border-radius: 12px;
+}

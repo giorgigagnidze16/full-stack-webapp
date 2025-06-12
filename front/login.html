@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>WorkLinker - Log In</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/login.css" />
+
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<section class="intro-container" style="min-height: 100vh; display: flex; align-items: center;">
+    <div class="container hero-container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent mb-5">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img id="navbar-logo" alt="logo" src="assets/imgs/logos/logo-dark-mode.png" />
+                </a>
+            </div>
+        </nav>
+
+        <div class="row justify-content-center">
+            <div class="custom-login-container p-5 rounded shadow-sm">
+                <h2 class="mb-4 text-center text-info">Admin Log In</h2>
+
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="username" class="form-label text-muted">Username</label>
+                        <input
+                                type="text"
+                                class="form-control dark-input"
+                                id="username"
+                                name="username"
+                                placeholder="Enter your username"
+                                required
+                                autofocus
+                        />
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="password" class="form-label text-muted">Password</label>
+                        <input
+                                type="password"
+                                class="form-control dark-input"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                required
+                        />
+                    </div>
+
+                    <button type="submit" class="btn btn-info w-100">Log In</button>
+                </form>
+
+                <div class="mt-3 text-center">
+                    <a href="index.html" class="text-decoration-none text-info">Back to Home</a>
+                </div>
+
+                <div id="loginError" class="text-danger mt-3 text-center" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
