@@ -19,6 +19,7 @@ services:
     environment:
       POSTGRES_DB: worklinker
       POSTGRES_PASSWORD: password
+      POSTGRES_HOST_AUTH_METHOD: trust
     ports:
       - "5432:5432"
 
