@@ -49,6 +49,7 @@ public class PartnerService {
     }
 
     public List<PartnerResponse> findAll() {
+        log.info("Retrieving partners from the db.");
         return partnerRepository.findAll()
             .stream()
             .map(PartnerService::mapPartnerEntityToPartnerResponse)
