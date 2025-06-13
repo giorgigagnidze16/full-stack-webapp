@@ -5,7 +5,7 @@ public record CreatePartnerRequest(
     String country,
     String number,
     String website,
-    String img,
-    String regionName
+    String imgUrl,
+    String region
 ) {
 }

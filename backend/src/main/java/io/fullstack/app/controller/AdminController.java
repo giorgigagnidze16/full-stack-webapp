@@ -43,9 +43,9 @@ public class AdminController {
         @PathVariable Integer id,
         @RequestParam String website,
         @RequestParam String region,
-        @RequestParam String img) {
+        @RequestParam String imgUrl) {
         try {
-            adminService.approvePartnerRequest(id, website, region, img);
+            adminService.approvePartnerRequest(id, website, region, imgUrl);
             return ResponseEntity.ok("Application approved");
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -96,7 +96,7 @@ public class AdminController {
     }
 
     private Partner mapToEntity(CreatePartnerRequest dto) {
-        Region region = adminService.findRegionByName(dto.regionName())
+        Region region = adminService.findRegionByName(dto.region())
             .orElseThrow(() -> new NotFoundException("Region not found"));
 
         return Partner.builder()
@@ -104,7 +104,7 @@ public class AdminController {
             .country(dto.country())
             .number(dto.number())
             .website(dto.website())
-            .imgUrl(dto.img())
+            .imgUrl(dto.imgUrl())
             .region(region)
             .build();
     }

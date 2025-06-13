@@ -130,3 +130,27 @@ h2 {
     border-color: #014a75;
     color: white;
 }
+
+#partners-list p,
+#pending-list p {
+    text-align: center;
+    color: #555;
+    font-style: italic;
+    margin-top: 2rem;
+}
+
+#btn-add-partner {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+}
+
+#partners-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    text-align: center;
+}
+

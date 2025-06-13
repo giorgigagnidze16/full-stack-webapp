@@ -15,6 +15,6 @@ public record PartnerResponse(
     String country,
     String number,
     String website,
-    String img
+    String imgUrl
 ) {
 }

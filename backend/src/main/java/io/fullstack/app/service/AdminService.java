@@ -89,8 +89,8 @@ public class AdminService {
         partnerRepository.deleteById(id);
     }
 
-    public Optional<Region> findRegionByName(String regionName) {
-        return regionRepository.findByName(regionName);
+    public Optional<Region> findRegionByName(String region) {
+        return regionRepository.findByName(region);
     }
 
 }

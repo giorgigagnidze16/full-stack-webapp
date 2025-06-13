@@ -20,8 +20,13 @@
 
 <section class="intro-container">
     <div class="container panel">
+        <div
+                class="toast-container position-fixed top-0 end-0 p-3"
+                id="partnerToastContainer"
+                style="z-index: 1080;"
+        ></div>
         <nav class="navbar navbar-expand-lg navbar-light mb-4 px-0">
-            <a class="navbar-brand d-flex align-items-center" href="index.html" style="color: black">
+            <a class="navbar-brand d-flex align-items-center" style="color: black">
                 <img
                         id="navbar-logo"
                         alt="logo"
@@ -104,12 +109,12 @@
                     role="tabpanel"
                     aria-labelledby="partners-tab"
             >
-                <button id="btn-add-partner" class="btn mb-3">Add Partner</button>
                 <div
                         id="partners-list"
                         class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"
                 >
                 </div>
+                <button id="btn-add-partner" class="btn mb-3" style="margin-top: 30px">Add Partner</button>
             </div>
 
             <div
@@ -118,101 +123,78 @@
                     role="tabpanel"
                     aria-labelledby="blogs-tab"
             >
-                <p style="color: #555; font-style: italic;">Blog management coming soon...</p>
+                <p style="color: #555; font-style: italic;">Not yet implemented...</p>
             </div>
         </div>
     </div>
 </section>
-
-<div
-        class="modal fade"
-        id="addPartnerModal"
-        tabindex="-1"
-        aria-labelledby="addPartnerModalLabel"
-        aria-hidden="true"
->
+<div class="modal fade" id="addPartnerModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <form id="add-partner-form" class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addPartnerModalLabel">Add New Partner</h5>
-                <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                ></button>
+                <h5 class="modal-title">Add / Edit Partner</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
+                <input type="hidden" name="id"/>
                 <div class="mb-3">
                     <label for="company" class="form-label">Company</label>
-                    <input
-                            type="text"
-                            id="company"
-                            name="company"
-                            class="form-control"
-                            required
-                    />
+                    <input type="text" name="company" id="company" class="form-control" required/>
                 </div>
                 <div class="mb-3">
                     <label for="country" class="form-label">Country</label>
-                    <input
-                            type="text"
-                            id="country"
-                            name="country"
-                            class="form-control"
-                            required
-                    />
+                    <input type="text" name="country" id="country" class="form-control" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="region" class="form-label">Region</label>
+                    <input type="text" name="region" id="region" class="form-control" required/>
                 </div>
                 <div class="mb-3">
                     <label for="number" class="form-label">Phone Number</label>
-                    <input
-                            type="text"
-                            id="number"
-                            name="number"
-                            class="form-control"
-                            required
-                    />
+                    <input type="text" name="number" id="number" class="form-control" required/>
                 </div>
                 <div class="mb-3">
-                    <label for="website" class="form-label">Website</label>
-                    <input
-                            type="url"
-                            id="website"
-                            name="website"
-                            class="form-control"
-                            required
-                    />
+                    <label for="website" class="form-label">Website URL</label>
+                    <input type="url" name="website" id="website" class="form-control" required/>
                 </div>
                 <div class="mb-3">
-                    <label for="img" class="form-label">Image URL</label>
-                    <input
-                            type="url"
-                            id="img"
-                            name="img"
-                            class="form-control"
-                            required
-                    />
-                </div>
-                <div class="mb-3">
-                    <label for="regionName" class="form-label">Region</label>
-                    <input
-                            type="text"
-                            id="regionName"
-                            name="regionName"
-                            class="form-control"
-                            required
-                    />
+                    <label for="imgUrl" class="form-label">Image URL</label>
+                    <input type="url" name="imgUrl" id="imgUrl" class="form-control" required/>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-success">Add Partner</button>
-                <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                >
-                    Cancel
-                </button>
+                <button type="submit" class="btn btn-primary">Save Partner</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="approveApplicationModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <form id="approve-application-form" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Approve Partner Application</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" name="applicationId"/>
+                <div class="mb-3">
+                    <label for="approve-website" class="form-label">Website URL</label>
+                    <input type="url" name="website" id="approve-website" class="form-control" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="approve-region" class="form-label">Region</label>
+                    <input type="text" name="region" id="approve-region" class="form-control" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="approve-imgUrl" class="form-label">Image URL</label>
+                    <input type="url" name="imgUrl" id="approve-imgUrl" class="form-control" required/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Approve</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
             </div>
         </form>
     </div>

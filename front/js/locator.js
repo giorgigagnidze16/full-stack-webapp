@@ -35,7 +35,7 @@ function createPartnerCard(partner) {
     card.className = 'partner-card';
 
     card.innerHTML = `
-    <img src="${partner.img}" alt="${partner.company} logo" class="partner-logo" />
+    <img src="${partner.imgUrl}" alt="${partner.company} logo" class="partner-logo" />
     <div class="partner-info">
       <a href="${partner.website}" target="_blank" rel="noopener noreferrer" class="partner-company">${partner.company}</a>
       <div class="partner-details">
