@@ -27,7 +27,9 @@ dependencies {
     annotationProcessor("org.projectlombok:lombok:1.18.38")
 
     runtimeOnly 'org.postgresql:postgresql:42.7.3'
-    runtimeOnly 'com.h2database:h2'
+
+    testRuntimeOnly 'com.h2database:h2:2.3.232'
+
 
     testCompileOnly("org.projectlombok:lombok:1.18.38")
     testAnnotationProcessor("org.projectlombok:lombok:1.18.38")
