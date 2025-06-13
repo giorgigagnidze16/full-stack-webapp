@@ -33,6 +33,10 @@ import static io.fullstack.app.converter.PartnerRequestConverter.toPartnerRespon
 public class AdminController {
     private final AdminService adminService;
 
+    @GetMapping("/login")
+    public ResponseEntity<?> login() {
+        return ResponseEntity.ok("ok");
+    }
 
     @GetMapping("/partner-applications")
     public List<PartnerApplicationResponse> getPendingPartnerApplications() {
