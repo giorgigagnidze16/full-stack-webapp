@@ -37,14 +37,13 @@ class AdminServiceIntegrationTest {
     @Autowired
     private PartnerRequestRepository partnerRequestRepository;
 
-
     @Test
     void testApprovePartnerRequestFlow() {
         PartnerRequest request = PartnerRequest.builder()
             .firstname("John")
             .lastname("Doe")
-            .company("Test Co")
-            .country("TestLand")
+            .company("Test Corp")
+            .country("Bakurian with selenium")
             .phone("123456789")
             .email("john.doe@test.com")
             .consent(true)
@@ -61,7 +60,7 @@ class AdminServiceIntegrationTest {
         List<Partner> partners = partnerRepository.findAll();
         assertEquals(6, partners.size());
         Partner partner = partners.getLast();
-        assertEquals("Test Co", partner.getCompany());
+        assertEquals("Test Corp", partner.getCompany());
         assertEquals("https://test.com", partner.getWebsite());
         assertEquals("img.png", partner.getImgUrl());
     }
@@ -71,11 +70,11 @@ class AdminServiceIntegrationTest {
         PartnerRequest request = PartnerRequest.builder()
             .firstname("John")
             .lastname("Doe")
-            .company("Test Co")
-            .country("TestLand")
+            .company("Test Corp")
+            .country("Bakurian")
             .email("meow.doe@test.com")
-            .company("Reject Co")
-            .country("RejectLand")
+            .company("Reject Corp")
+            .country("cavatanem")
             .phone("987654321")
             .consent(true)
             .approved(false)
@@ -91,8 +90,8 @@ class AdminServiceIntegrationTest {
     void testAddUpdateDeletePartner() {
         Region region = regionRepository.save(new Region(null, "Asia"));
         Partner partner = Partner.builder()
-            .company("Initial Co")
-            .country("AsiaLand")
+            .company("Initial Corp")
+            .country("Terjolski")
             .number("111222333")
             .website("http://initial.com")
             .imgUrl("init.png")
@@ -103,12 +102,12 @@ class AdminServiceIntegrationTest {
         assertNotNull(savedPartner.getId());
 
         PartnerUpdateRequest dto = new PartnerUpdateRequest(
-            "Updated Co", "NewLand", "999888777", "http://updated.com", "updated.png"
+            "Updated Corp", "Terjolski", "999888777", "http://updated.com", "updated.png"
         );
         Partner updatedPartner = adminService.updatePartner(savedPartner.getId(), dto);
 
-        assertEquals("Updated Co", updatedPartner.getCompany());
-        assertEquals("NewLand", updatedPartner.getCountry());
+        assertEquals("Updated Corp", updatedPartner.getCompany());
+        assertEquals("Terjolski", updatedPartner.getCountry());
 
         adminService.deletePartner(savedPartner.getId());
         assertFalse(partnerRepository.existsById(savedPartner.getId()));
