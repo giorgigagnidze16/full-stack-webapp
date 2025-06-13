@@ -1,0 +1,32 @@
+@import url("navbar.css");
+@import url("container.css");
+@import url("landing-page/main.css");
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #034078 0%, #011a27 100%);
+    color: #e0e6f2;
+}
+
+.intro-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel {
+    background-color: rgba(255, 255, 255, 1);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgb(1 26 39 / 0.6);
+    max-width: 1000px;
+    width: 100%;
+}
+
+.panel h1 {
+    color: black;
+    font-weight: bold;
+}
