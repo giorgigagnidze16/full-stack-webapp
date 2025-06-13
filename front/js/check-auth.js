@@ -1,6 +1,6 @@
 async function checkAuth() {
     const credentials = localStorage.getItem('basicAuth');
-    if (!credentials) {
+    if (!credentials && !window.location.href.includes("login.html")) {
         alert('Not authorized');
         window.location.href = '../index.html';
         return;
@@ -14,11 +14,11 @@ async function checkAuth() {
             }
         });
 
-        if (!response.ok) {
+        if (!response.ok && !window.location.href.includes("login.html")) {
             alert('Not authorized');
             localStorage.removeItem('basicAuth');
             window.location.href = '../index.html';
-        } else if (window.location.href.includes("login.html")) {
+        } else if (response.ok && window.location.href.includes("login.html")) {
             window.location.href = '../dashboard.html';
         }
     } catch (err) {
