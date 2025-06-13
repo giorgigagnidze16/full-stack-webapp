@@ -47,6 +47,7 @@ public class PartnerRequest {
     @Column(nullable = false)
     private Boolean consent;
 
+    @Builder.Default
     @Column(nullable = false)
     private Boolean approved = false;
 }
