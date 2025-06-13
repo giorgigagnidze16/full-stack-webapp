@@ -9,6 +9,7 @@ package io.fullstack.app.dto;
  * @param website of partner
  */
 public record PartnerResponse(
+    Integer id,
     String region,
     String company,
     String country,
