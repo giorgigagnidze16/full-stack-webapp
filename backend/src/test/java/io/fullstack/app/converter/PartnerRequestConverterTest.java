@@ -65,7 +65,7 @@ class PartnerRequestConverterTest {
         assertEquals("amser", response.country());
         assertEquals("+123456789", response.number());
         assertEquals("https://maraky.com", response.website());
-        assertEquals("https://maraky.com/logo.png", response.img());
+        assertEquals("https://maraky.com/logo.png", response.imgUrl());
     }
 
     @Test
@@ -88,6 +88,6 @@ class PartnerRequestConverterTest {
         assertEquals("idk", response.country());
         assertEquals("000", response.number());
         assertEquals("http://testigo.io", response.website());
-        assertEquals("http://testigo.io/logo.png", response.img());
+        assertEquals("http://testigo.io/logo.png", response.imgUrl());
     }
 }
