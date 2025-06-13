@@ -1,13 +1,18 @@
 async function checkAuth() {
     const credentials = localStorage.getItem('basicAuth');
-    if (!credentials && !window.location.href.includes("login.html")) {
+
+
+    if (!credentials) {
+        if (window.location.href.includes("login.html")) {
+            return;
+        }
         alert('Not authorized');
         window.location.href = '../index.html';
         return;
     }
 
     try {
-        const response = await fetch('/api/admin/login', {
+        const response = await fetch('/api/auth/login', {
             method: 'GET',
             headers: {
                 'Authorization': `Basic ${credentials}`

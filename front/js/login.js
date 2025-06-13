@@ -10,7 +10,7 @@ form.addEventListener('submit', async (e) => {
     const credentials = btoa(`${username}:${password}`);
 
     try {
-        const response = await fetch('/api/admin/login', {
+        const response = await fetch('/api/auth/login', {
             method: 'GET',
             headers: {
                 'Authorization': `Basic ${credentials}`
