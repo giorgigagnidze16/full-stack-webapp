@@ -18,8 +18,7 @@ services:
     image: postgres:16.3
     environment:
       POSTGRES_DB: worklinker
-      POSTGRES_PASSWORD: password
-      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_PASSWORD: saqartvelosbanki123
     ports:
       - "5432:5432"
 
