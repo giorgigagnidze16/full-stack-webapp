@@ -30,3 +30,103 @@ body, html {
     color: black;
     font-weight: bold;
 }
+
+#navbar-logo {
+    height: 70px !important;
+}
+
+.intro-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+.panel {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgb(3 64 120 / 0.1);
+    max-width: 1100px;
+    width: 100%;
+}
+
+h2 {
+    color: #034078;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+
+#pending-list .list-group-item {
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgb(3 64 120 / 0.1);
+    background-color: white;
+}
+
+
+.partner-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgb(3 64 120 / 0.1);
+    padding: 1rem;
+    background-color: white;
+    transition: box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.partner-card:hover {
+    box-shadow: 0 8px 24px rgb(3 64 120 / 0.2);
+}
+
+.partner-card img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+    object-fit: contain;
+    height: 140px;
+}
+
+.partner-card h5 {
+    color: #034078;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.partner-card p {
+    font-size: 0.9rem;
+    color: #2a3e4c;
+    margin-bottom: 0.5rem;
+    flex-grow: 1;
+}
+
+.partner-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.partner-actions button {
+    min-width: 70px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+}
+
+#btn-add-partner {
+    background-color: #0367b4;
+    border-color: #0367b4;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+#btn-add-partner:hover {
+    background-color: #014a75;
+    border-color: #014a75;
+    color: white;
+}

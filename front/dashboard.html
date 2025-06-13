@@ -13,24 +13,210 @@
     <link rel="stylesheet" href="css/admin.css" />
 
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/admin.js"></script>
     <script src="js/check-auth.js"></script>
 </head>
 <body>
 
-<section class="intro-container" style="min-height: 100vh; display: flex; align-items: center;">
+<section class="intro-container">
     <div class="container panel">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent mb-5">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html" style="color: black">
-                    <img id="navbar-logo" alt="logo" src="assets/imgs/logos/logo-light-mode.png" />
-                </a>
-                <h1 class="ms-3 text-dark">Admin Dashboard</h1>
-            </div>
+        <nav class="navbar navbar-expand-lg navbar-light mb-4 px-0">
+            <a class="navbar-brand d-flex align-items-center" href="index.html" style="color: black">
+                <img
+                        id="navbar-logo"
+                        alt="logo"
+                        src="assets/imgs/logos/logo-light-mode.png"
+                        style="height: 40px; margin-right: 8px;"
+                />
+                <span style="font-weight: 700; font-size: 1.25rem; color: #034078;">
+            Admin Dashboard
+          </span>
+            </a>
         </nav>
 
+        <ul
+                class="nav nav-tabs mb-4"
+                id="adminTab"
+                role="tablist"
+        >
+            <li class="nav-item" role="presentation">
+                <button
+                        class="nav-link active"
+                        id="pending-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#pending-panel"
+                        type="button"
+                        role="tab"
+                        aria-controls="pending-panel"
+                        aria-selected="true"
+                >
+                    Pending Applications
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button
+                        class="nav-link"
+                        id="partners-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#partners-panel"
+                        type="button"
+                        role="tab"
+                        aria-controls="partners-panel"
+                        aria-selected="false"
+                >
+                    Partners
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button
+                        class="nav-link"
+                        id="blogs-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#blogs-panel"
+                        type="button"
+                        role="tab"
+                        aria-controls="blogs-panel"
+                        aria-selected="false"
+                >
+                    Blogs
+                </button>
+            </li>
+        </ul>
 
+        <div class="tab-content" id="adminTabContent" style="min-height: 500px;">
+            <div
+                    class="tab-pane fade show active"
+                    id="pending-panel"
+                    role="tabpanel"
+                    aria-labelledby="pending-tab"
+            >
+                <div
+                        id="pending-list"
+                        class="list-group overflow-auto"
+                        style="max-height: 600px;"
+                >
+                </div>
+            </div>
+
+            <div
+                    class="tab-pane fade"
+                    id="partners-panel"
+                    role="tabpanel"
+                    aria-labelledby="partners-tab"
+            >
+                <button id="btn-add-partner" class="btn mb-3">Add Partner</button>
+                <div
+                        id="partners-list"
+                        class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"
+                >
+                </div>
+            </div>
+
+            <div
+                    class="tab-pane fade"
+                    id="blogs-panel"
+                    role="tabpanel"
+                    aria-labelledby="blogs-tab"
+            >
+                <p style="color: #555; font-style: italic;">Blog management coming soon...</p>
+            </div>
+        </div>
     </div>
 </section>
+
+<div
+        class="modal fade"
+        id="addPartnerModal"
+        tabindex="-1"
+        aria-labelledby="addPartnerModalLabel"
+        aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <form id="add-partner-form" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addPartnerModalLabel">Add New Partner</h5>
+                <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                ></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="company" class="form-label">Company</label>
+                    <input
+                            type="text"
+                            id="company"
+                            name="company"
+                            class="form-control"
+                            required
+                    />
+                </div>
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country</label>
+                    <input
+                            type="text"
+                            id="country"
+                            name="country"
+                            class="form-control"
+                            required
+                    />
+                </div>
+                <div class="mb-3">
+                    <label for="number" class="form-label">Phone Number</label>
+                    <input
+                            type="text"
+                            id="number"
+                            name="number"
+                            class="form-control"
+                            required
+                    />
+                </div>
+                <div class="mb-3">
+                    <label for="website" class="form-label">Website</label>
+                    <input
+                            type="url"
+                            id="website"
+                            name="website"
+                            class="form-control"
+                            required
+                    />
+                </div>
+                <div class="mb-3">
+                    <label for="img" class="form-label">Image URL</label>
+                    <input
+                            type="url"
+                            id="img"
+                            name="img"
+                            class="form-control"
+                            required
+                    />
+                </div>
+                <div class="mb-3">
+                    <label for="regionName" class="form-label">Region</label>
+                    <input
+                            type="text"
+                            id="regionName"
+                            name="regionName"
+                            class="form-control"
+                            required
+                    />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Add Partner</button>
+                <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                >
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
 
 </body>
 </html>
