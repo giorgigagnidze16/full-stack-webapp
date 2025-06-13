@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>WorkLinker Admin Dashboard</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/check-auth.js"></script>
+</head>
+<body>
+
+<section class="intro-container">
+    <div class="container panel">
+        <div
+                class="toast-container position-fixed top-0 end-0 p-3"
+                id="partnerToastContainer"
+                style="z-index: 1080;"
+        ></div>
+        <nav class="navbar navbar-expand-lg navbar-light mb-4 px-0">
+            <a class="navbar-brand d-flex align-items-center" style="color: black">
+                <img
+                        id="navbar-logo"
+                        alt="logo"
+                        src="assets/imgs/logos/logo-light-mode.png"
+                        style="height: 40px; margin-right: 8px;"
+                />
+                <span style="font-weight: 700; font-size: 1.25rem; color: #034078;">
+            Admin Dashboard
+          </span>
+            </a>
+        </nav>
+
+        <ul
+                class="nav nav-tabs mb-4"
+                id="adminTab"
+                role="tablist"
+        >
+            <li class="nav-item" role="presentation">
+                <button
+                        class="nav-link active"
+                        id="pending-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#pending-panel"
+                        type="button"
+                        role="tab"
+                        aria-controls="pending-panel"
+                        aria-selected="true"
+                >
+                    Pending Applications
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button
+                        class="nav-link"
+                        id="partners-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#partners-panel"
+                        type="button"
+                        role="tab"
+                        aria-controls="partners-panel"
+                        aria-selected="false"
+                >
+                    Partners
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button
+                        class="nav-link"
+                        id="blogs-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#blogs-panel"
+                        type="button"
+                        role="tab"
+                        aria-controls="blogs-panel"
+                        aria-selected="false"
+                >
+                    Blogs
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="adminTabContent" style="min-height: 500px;">
+            <div
+                    class="tab-pane fade show active"
+                    id="pending-panel"
+                    role="tabpanel"
+                    aria-labelledby="pending-tab"
+            >
+                <div
+                        id="pending-list"
+                        class="list-group overflow-auto"
+                        style="max-height: 600px;"
+                >
+                </div>
+            </div>
+
+            <div
+                    class="tab-pane fade"
+                    id="partners-panel"
+                    role="tabpanel"
+                    aria-labelledby="partners-tab"
+            >
+                <div
+                        id="partners-list"
+                        class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"
+                >
+                </div>
+                <button id="btn-add-partner" class="btn mb-3" style="margin-top: 30px">Add Partner</button>
+            </div>
+
+            <div
+                    class="tab-pane fade"
+                    id="blogs-panel"
+                    role="tabpanel"
+                    aria-labelledby="blogs-tab"
+            >
+                <p style="color: #555; font-style: italic;">Not yet implemented...</p>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal fade" id="addPartnerModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <form id="add-partner-form" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add / Edit Partner</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" name="id"/>
+                <div class="mb-3">
+                    <label for="company" class="form-label">Company</label>
+                    <input type="text" name="company" id="company" class="form-control" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" name="country" id="country" class="form-control" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="region" class="form-label">Region</label>
+                    <input type="text" name="region" id="region" class="form-control" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="number" class="form-label">Phone Number</label>
+                    <input type="text" name="number" id="number" class="form-control" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="website" class="form-label">Website URL</label>
+                    <input type="url" name="website" id="website" class="form-control" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="imgUrl" class="form-label">Image URL</label>
+                    <input type="url" name="imgUrl" id="imgUrl" class="form-control" required/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Save Partner</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade" id="approveApplicationModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <form id="approve-application-form" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Approve Partner Application</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" name="applicationId"/>
+                <div class="mb-3">
+                    <label for="approve-website" class="form-label">Website URL</label>
+                    <input type="url" name="website" id="approve-website" class="form-control" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="approve-region" class="form-label">Region</label>
+                    <input type="text" name="region" id="approve-region" class="form-control" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="approve-imgUrl" class="form-label">Image URL</label>
+                    <input type="url" name="imgUrl" id="approve-imgUrl" class="form-control" required/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success">Approve</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

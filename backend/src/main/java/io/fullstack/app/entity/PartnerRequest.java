@@ -10,10 +10,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "partner_requests")
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -44,4 +46,8 @@ public class PartnerRequest {
 
     @Column(nullable = false)
     private Boolean consent;
+
+    @Builder.Default
+    @Column(nullable = false)
+    private Boolean approved = false;
 }

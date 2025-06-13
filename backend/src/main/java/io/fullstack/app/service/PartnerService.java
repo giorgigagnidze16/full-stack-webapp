@@ -2,7 +2,7 @@ package io.fullstack.app.service;
 
 
 import io.fullstack.app.dto.PartnerResponse;
-import io.fullstack.app.dto.PartnershipRequestDTO;
+import io.fullstack.app.dto.PartnerApplicationRequest;
 import io.fullstack.app.entity.Partner;
 import io.fullstack.app.entity.PartnerRequest;
 import io.fullstack.app.exception.AlreadyExistsException;
@@ -27,7 +27,7 @@ public class PartnerService {
      * @param request partnership request dto.
      * @throws AlreadyExistsException if request already exists either from the company or the same email.
      */
-    public void processPartnershipRequest(PartnershipRequestDTO request) {
+    public void processPartnershipRequest(PartnerApplicationRequest request) {
         if (partnerRequestRepository.existsByEmailOrCompany(request.email(), request.company())) {
             throw new AlreadyExistsException("Partnership request already exists from company: " + request.company());
         }
@@ -57,6 +57,6 @@ public class PartnerService {
     }
 
     private static PartnerResponse mapPartnerEntityToPartnerResponse(Partner p) {
-        return new PartnerResponse(p.getRegion().getName(), p.getCompany(), p.getCountry(), p.getNumber(), p.getWebsite(), p.getImgUrl());
+        return new PartnerResponse(p.getId(), p.getRegion().getName(), p.getCompany(), p.getCountry(), p.getNumber(), p.getWebsite(), p.getImgUrl());
     }
 }

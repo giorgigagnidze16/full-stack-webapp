@@ -4,6 +4,8 @@ import io.fullstack.app.entity.PartnerRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import java.util.List;
+
 public interface PartnerRequestRepository extends JpaRepository<PartnerRequest, Integer> {
     @Query(
         value = """
@@ -16,4 +18,7 @@ public interface PartnerRequestRepository extends JpaRepository<PartnerRequest, 
             """,
         nativeQuery = true)
     boolean existsByEmailOrCompany(String email, String company);
+
+
+    List<PartnerRequest> findByApprovedIsFalse();
 }

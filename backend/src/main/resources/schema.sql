@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS partner_requests
     phone     VARCHAR(255) NOT NULL,
     message   VARCHAR(255),
     consent   BOOLEAN      NOT NULL,
+    approved   BOOLEAN      NOT NULL,
     CONSTRAINT pk_partner_request PRIMARY KEY (id),
     CONSTRAINT uq_email UNIQUE (email),
     CONSTRAINT uq_company UNIQUE (company)

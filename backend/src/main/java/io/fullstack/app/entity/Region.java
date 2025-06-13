@@ -30,4 +30,9 @@ public class Region {
 
     @OneToMany(mappedBy = "region")
     private List<Partner> partners;
+
+    public Region(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

@@ -1,7 +1,7 @@
 package io.fullstack.app.controller;
 
 import io.fullstack.app.dto.PartnerResponse;
-import io.fullstack.app.dto.PartnershipRequestDTO;
+import io.fullstack.app.dto.PartnerApplicationRequest;
 import io.fullstack.app.service.PartnerService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ public class PartnerController {
     private final PartnerService partnerService;
 
     @PostMapping
-    public ResponseEntity<String> registerPartner(@Valid @RequestBody PartnershipRequestDTO request) {
+    public ResponseEntity<String> registerPartner(@Valid @RequestBody PartnerApplicationRequest request) {
         log.info("Received a partner registration request {}", request);
         partnerService.processPartnershipRequest(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();
